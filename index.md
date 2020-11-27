@@ -1,5 +1,5 @@
 # Welcome to Openveristy 
-#### GitHub for learning
+#### The learning Hub
 
 ## The Rust Workshop
 #### Workshop on The Rust Programming Langauge
