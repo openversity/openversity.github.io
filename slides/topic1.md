@@ -1,4 +1,3 @@
-class: title
 
 # TOPIC 1
 ## This is the topic one
