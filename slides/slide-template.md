@@ -10,7 +10,7 @@ Presented by: Atsuki Demizu
 
 ## Headings
 
-### Special headings
+* ### Special headings
 
 In this theme, the heading has a special meaning. Level 2 heading at the top of the page creates a page title, and Level 3 heading creates subhead.  
 In contrast to these heading, Level 4 heading creates more emphatic text.

@@ -4,19 +4,17 @@
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!--
-        <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script> 
-        
+        <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
     -->
     <link href="css/myslide.css" rel="stylesheet">
     <script src="/code/remark-min.js"></script>
   </head>
   <body bgcolor="#ff00ff">
     <script>
-        let slidePath = "/slides/"
         const params = new URLSearchParams(window.location.search);
-        let slideName = params.get("slides")
-        if (slideName === null) { slideName = "sample.md" }
-        slidePath += slideName
+        let slidePath = params.get("slides")
+        console.log("Before Check:"+ slidePath)
+        if (slidePath === null) { slidePath = "/slides/sample.md" }
         console.log("Play Slide Path:" + slidePath)
 
         var slideshow = remark.create({
