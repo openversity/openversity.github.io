@@ -13,25 +13,27 @@ class: middle, center
 
 ## Learning Resourses
 Few important web links and books to start with:
-* **The Rust Programming Language**
-* **Rust By Example**
-* **Rustlings**: The command line version of Rust Guide
-* It is a good idea to finish the fitst 4 chapters of **The Rust Programming Language** completely so that we can get familiar with most imoprtant rust language concepts
+> * **The Rust Programming Language**
+> * **Rust By Example**
+> * **Rustlings**: The command line version of Rust Guide
+> It is a good idea to finish the fitst 4 chapters of **The Rust Programming Language** completely so that we can get familiar with most imoprtant rust language concepts
 ---
 
 ## Tools required
-* **rustup** : Tool to upgrade to the latest version of the rust tool chain
-
-* **cargo**  : A complete tool to do most tasks like build, package management etc. during development
+> * Rust Tools Chain
+>   * Rust compiler
+>   * Rust Build and package manager
+> * **rustup** : Tool to upgrade to the latest version of the rust tool chain
+> * Your favorite Editor
+>   * vim / emacs / vscode with readymade extensions 
 ---
 
 ## How to install Rust tool chain?
-All you need to do is run the following command in any Nix OS; This will install tools like rust compiler and package manager
+All you need to do is run the following command in any Nix OS which will install the rust tools; 
 
-> ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh```
----
-
-## How to check the Tools
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
 
 * Check the Rust compiler **rustc**
 
@@ -75,31 +77,39 @@ info: cleaning up downloads & tmp directories
 ## Rust Tool chain is ready for development
 * `rustc` is a compiler
 * `cargo` is a package manager
-* We generally dont use the compiler `ructc` directly but we use `cargo` for most of the development; 
+   * We use `cargo` for most of the development;
+   * cargo takes care of all build and package management 
 * Go to next section for more details about the `cargo`
 ---
 
 ## The Cargo Tool
 
-### Create projects
-> ```
-> cargo new project_hello
-> cd project_hello/
-> ```
+### Create a project
+```
+cargo new project_hello
+cd project_hello/
+```
 --
 
-### Check the code for error and warning without build
-> `cargo check`
-> #### Build the code
-> `cargo build`
+### Check the code for errors without build
+```
+cargo check
+```
+--
+
+### Build the code
+```
+cargo build
+```
+---
 
 ### Test the code
-> `cargo test`
+```
+cargo test
+```
 --
 
 ### And Run the code
-> `cargo run`
-
 ```
 $ cargo run
     Finished dev [unoptimized + debuginfo] target(s) in 0.01s
@@ -110,7 +120,9 @@ $
 --
 
 ### Release the code with optimizaitons for production
-> `cargo build --release`
+```
+cargo build --release
+```
 ---
 
 ## Next Steps
