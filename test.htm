@@ -1,12 +1,14 @@
 <body>
 <H1>TEST HTML</H1>
 <hr>
-<text id="textBox">
-Message
-</text>
+<label id="lmessage">name</label>
+<input id="tbox" name="textBox" value="Before script call">
 
 <script>
-  document.getElementById("textBox").value = message
+  const params = new URLSearchParams(window.location.search);
+  let slideName = params.get("slideName")
+  document.getElementById("tbox").value = slideName
+  console.log(slideName)
 </script>
 
 </body>
