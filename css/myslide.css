@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(219, 214, 208);
+}
+
+h1, h5 {
+    color: rgb(33, 65, 122);
+    text-align: center;
+    background-color: linen;
+}
+
+h2,h4 {
+    color: rgb(100, 37, 11);
+    background-color: lightblue;
+    text-align: center;
+}
+
+p {
+    color: black;
+  }

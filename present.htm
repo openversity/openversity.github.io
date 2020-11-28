@@ -3,17 +3,30 @@
   <head>
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script src="https://sfc-arch.github.io/remark/downloads/remark-latest.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://sfc-arch.github.io/remark-theme/blue_standard/remark_theme_blue_standard.css"/>
+    <!--
+        <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script> 
+        
+    -->
+    <link href="css/myslide.css" rel="stylesheet">
+    <script src="/code/remark-min.js"></script>
   </head>
-  <body>
+  <body bgcolor="#ff00ff">
     <script>
-        let slidePath = "slides/"
-        let slideName = slidePath + "slides.md"
+        let slidePath = "/slides/"
         const params = new URLSearchParams(window.location.search);
-        slideName = slidePath + params.get("slides")
-        console.log("Your Slides file to play:" + slideName)
-        var slideshow = remark.create({ sourceUrl: slideName });
+        let slideName = params.get("slides")
+        if (slideName === null) { slideName = "sample.md" }
+        slidePath += slideName
+        console.log("Play Slide Path:" + slidePath)
+
+        var slideshow = remark.create({
+                sourceUrl: slidePath,
+                ratio: '16:9',
+                countIncrementalSlides: false,
+                highlightLanguage: 'javascript',
+                highlightStyle: 'github',
+                navigation: {click: true}
+            });
     </script>
   </body>
 </html>
