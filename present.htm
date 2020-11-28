@@ -8,7 +8,12 @@
   </head>
   <body>
     <script>
-      var slideshow = remark.create({ sourceUrl: 'slide.md' });
+        let slidePath = "slides/"
+        let slideName = slidePath + "slides.md"
+        const params = new URLSearchParams(window.location.search);
+        slideName = slidePath + params.get("slides")
+        console.log("Your Slides file to play:" + slideName)
+        var slideshow = remark.create({ sourceUrl: slideName });
     </script>
   </body>
 </html>
