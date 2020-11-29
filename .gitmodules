@@ -1,6 +1,3 @@
-[submodule "openversity.github.io.wiki"]
-	path = openversity.github.io.wiki
-	url = https://github.com/openversity/openversity.github.io.wiki.git
 [submodule "wiki"]
 	path = wiki
 	url = https://github.com/openversity/openversity.github.io.wiki.git
