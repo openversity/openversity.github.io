@@ -2,19 +2,6 @@ title: Openversity
 description: An Open Learning Hub
 url: "https://openversity.github.io"
 remote_theme: pmarsceill/just-the-docs
-# Define Jekyll collections
-collections:
-  # Define a collection named "docs", its documents reside in the "_docs" directory
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
-
-just_the_docs:
-  collections:
-    docs:
-      name: Documentation
-    tutorials:
-      name: Tutorials
 
 # Back to top link
 back_to_top: true
