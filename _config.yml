@@ -4,7 +4,7 @@ url: "https://openversity.github.io"
 
 remote_theme: pmarsceill/just-the-docs
 permalink: pretty
-exclude: ["script/", "code/", "lib/", "bin/", "css/", "slideshow/", "tests/", "LICENSE", "README.md" ]
+exclude: ["script/", "code/", "lib/", "bin/", "css/", "tests/", "LICENSE", "README.md"]
 # Enable or disable the site search
 # Supports true (default) or false
 search_enabled: true
