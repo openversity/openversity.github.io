@@ -9,11 +9,13 @@ nav_order: 1
 exclude: true
 1. TOC
 {:toc}
+
 ---
 
 name: title
 class: middle, center
 # Rust Launch Pad
+
 ---
 
 ## Learning Rust
