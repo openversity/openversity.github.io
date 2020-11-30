@@ -3,6 +3,7 @@
 
 ## The Rust Workshop
 #### Workshop on The Rust Programming Langauge
+[[rust|slides/rust/launch.md]]
 https://github.com/openversity/rust.github.io/wiki
 
 ***
