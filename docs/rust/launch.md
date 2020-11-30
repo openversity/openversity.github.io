@@ -14,7 +14,6 @@ exclude: true
 name: title
 class: middle, center
 # Rust Launch Pad
-### By CS
 ---
 
 ## Learning Rust
@@ -22,6 +21,7 @@ class: middle, center
 * This is the first con about the Rust language.
 * We need to understand few important concepts of Rust, before we start writing some code samples
 * Otherwise understanding the code snippets from code samples would quickly become frustating and boring. 
+
 ---
 
 ## Learning Resourses
@@ -29,7 +29,8 @@ Few important web links and books to start with:
 > * **The Rust Programming Language**
 > * **Rust By Example**
 > * **Rustlings**: The command line version of Rust Guide
-> It is a good idea to finish the fitst 4 chapters of **The Rust Programming Language** completely so that we can get familiar with most imoprtant rust language concepts
+> * It is a good idea to finish the fitst 4 chapters of **The Rust Programming Language** completely so that we can get familiar with most imoprtant rust language concepts
+
 ---
 
 ## Tools required
@@ -39,6 +40,7 @@ Few important web links and books to start with:
 > * **rustup** : Tool to upgrade to the latest version of the rust tool chain
 > * Your favorite Editor
 >   * vim / emacs / vscode with readymade extensions 
+
 ---
 
 ## How to install Rust tool chain?
@@ -72,6 +74,7 @@ USAGE:
 OPTIONS
 ...
 ```
+
 ---
 
 ## How to update the Rust tool chain
@@ -93,6 +96,7 @@ info: cleaning up downloads & tmp directories
    * We use `cargo` for most of the development;
    * cargo takes care of all build and package management 
 * Go to next section for more details about the `cargo`
+
 ---
 
 ## The Cargo Tool
@@ -142,6 +146,5 @@ cargo build --release
 * We need some editor to write rust programs
 * Most convenient editor is **vscode**; it has readymade extension for rust development;
 * One recommended extension is rust-analyzer; it is also availble for other editors
-* One can use his choice of editor like vim and emacs
+* One can use his choice of editor like vim and emacs.
 
-Goto [[Home]] for tutorial

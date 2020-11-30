@@ -2,7 +2,12 @@
 layout: default
 title: The Guess Game
 parent: The Rust Workshop
-nav_order: 1
+nav_order: 2
+---
+
+exclude: true
+1. TOC
+{:toc}
 ---
 
 Lets start with understanding the inital Rust project
