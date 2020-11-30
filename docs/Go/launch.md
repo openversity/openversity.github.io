@@ -1,10 +1,12 @@
 ---
+exclude: true
 layout: default
 title: LaunchPad
 parent: The Go Workshop
 nav_order: 1
 ---
 
+exclude: true
 1. TOC
 {:toc}
 ---

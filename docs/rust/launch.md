@@ -1,15 +1,14 @@
 ---
+exclude: true
 layout: default
 title: LaunchPad
 parent: The Rust Workshop
 nav_order: 1
-exclude: true
 ---
 
-
+exclude: true
 1. TOC
 {:toc}
-exclude: true
 ---
 
 name: title
