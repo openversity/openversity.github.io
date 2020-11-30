@@ -9,12 +9,12 @@
     <link href="/css/myslide.css" rel="stylesheet">
     <script src="/code/remark-min.js"></script>
   </head>
-  <body bgcolor="#ff00ff">
+  <body>
     <script>
         const params = new URLSearchParams(window.location.search);
         let slidePath = params.get("slides")
         console.log("Before Check:"+ slidePath)
-        if (slidePath === null) { slidePath = "/slides/sample.md" }
+        if (slidePath === null) { slidePath = "sample.md" }
         console.log("Play Slide Path:" + slidePath)
 
         var slideshow = remark.create({
