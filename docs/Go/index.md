@@ -1,9 +1,9 @@
 ---
 layout: default
-title: The Rust Workshop
-nav_order: 1
+title: The Go Workshop
+nav_order: 2
 has_children: true
 ---
 
-# The Rust Workshop
+# The Go Workshop
 [Launch](launch.md)

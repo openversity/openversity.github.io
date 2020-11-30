@@ -1,12 +1,12 @@
+---
+layout: default
+title: The Learning Hub
+nav_order: 1
+description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
+permalink: /
+---
+
 # Welcome to Openveristy 
-#### The learning Hub
+## The learning Hub
 
-## The Rust Workshop
-#### Workshop on The Rust Programming Langauge
 
-[launch](slides/rust/launch.md)
-
-https://github.com/openversity/rust.github.io/wiki
-
-***
-All the content including the code is under MIT license
