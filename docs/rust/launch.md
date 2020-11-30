@@ -1,3 +1,17 @@
+---
+layout: default
+title: LaunchPad
+parent: The Rust Workshop
+nav_order: 1
+exclude: true
+---
+
+
+1. TOC
+{:toc}
+exclude: true
+---
+
 name: title
 class: middle, center
 # Rust Launch Pad

@@ -1,4 +1,11 @@
-Lets start with the Rust Project files
+---
+layout: default
+title: The Guess Game
+parent: The Rust Workshop
+nav_order: 1
+---
+
+Lets start with understanding the inital Rust project
 
 ## Create the project folder
 ```
