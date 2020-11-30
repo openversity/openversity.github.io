@@ -7,4 +7,4 @@ has_children: true
 
 # The Rust
 
-[Launch] (launch.md)
+[Launch](launch.md)
