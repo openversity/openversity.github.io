@@ -8,4 +8,8 @@ collections:
   docs:
     permalink: "/:collection/:path/"
     output: true
-    
+
+# Back to top link
+back_to_top: true
+back_to_top_text: "Back to top"
+footer_content: "(c)2021 MIT license"
