@@ -13,13 +13,16 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         let slidePath = params.get("slides")
+        let slideRatio = params.get("ratio")
         console.log("Before Check:"+ slidePath)
         if (slidePath === null) { slidePath = "sample.md" }
+        if (slideRatio === null) { slideRatio = "16:9" }
         console.log("Play Slide Path:" + slidePath)
+        console.log("Play Slide Ratio:" + slideRatio)
 
         var slideshow = remark.create({
                 sourceUrl: slidePath,
-                ratio: '16:9',
+                ratio: slideRatio,
                 countIncrementalSlides: false,
                 highlightLanguage: 'javascript',
                 highlightStyle: 'github',
