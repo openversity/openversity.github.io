@@ -3,7 +3,7 @@
 <hr>
 <label id="lmessage">name</label>
 <input id="tbox" name="textBox" value="Before script call">
-
+<input id="button" type="submit" value="&crarr;" />
 <script>
   const params = new URLSearchParams(window.location.search);
   let slideName = params.get("slideName")
@@ -15,7 +15,20 @@
 
 <H2>Notes</H2>
 
-
+<div id="front-page">
+  <div>
+    <h1>Remark<span>ise</span></h1>
+    <p id="message">
+      Render your <a href="http://commonmark.org/">markdown</a> as
+      <a href="https://github.com/tripu/remark">remark</a> slides&nbsp;&mdash;&nbsp;in real time
+    </p>
+    <input id="url" placeholder="URL of a markdown file" autofocus="autofocus" />
+    <input id="button" type="submit" value="&crarr;" />
+    <p id="drop-area">
+      or drop a local markdown file here
+    </p>
+  </div>
+</div>
 
 </body>
 * theme: jekyll-theme-cayman

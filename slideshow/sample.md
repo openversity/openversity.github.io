@@ -1,6 +1,6 @@
 name: title
 class: middle, center
-# MY TITLE
+# MY SLIDE TITLE
 By CS
 
 ---
@@ -62,10 +62,20 @@ fn main() {
 
 ---
 
+name: help
+class: middle, center
+# Help
+
+.footnote[
+###Visit: https://github.com/gnab/remark/wiki
+]
+
+---
+
 name: questions
 class: middle, center
 # Questions ?
-
+**Send your questions to**
 .footnote[
-mail:abc@xyz.com
+## mail: abc@xyz.com
 ]
