@@ -16,7 +16,15 @@ name: title
 class: middle, center
 # The Guess Game
 
-**Explore the Rust project**
+---
+
+name: agenda
+## Agenda
+* **Create & Explore the Rust project**
+
+* **Write a Rust program for guess game**
+
+* **Understand the initial Rust concepts from the above code**
 
 ---
 
@@ -80,5 +88,260 @@ fn main() {
     println!("Hello, world!");
 }
 ```
-sample main function for "hello world"
+* Sample program for "hello world"
+* `fn main` denotes the main funcition
+* `println!` is a macro to print on the standard output
+* `!` symbol prefix denotes the macro call and we will see different such macros in Rust programs
 
+---
+
+## Guess Game 
+* Lets jump into guess game now
+  * We will write a program to generate a random number between 1 and 100, and ask the user to guess the number; Also gives hints to the user
+* Edit the main function to write the guess game; 
+
+**Programs steps are as follows:**
+* Genearate a secret random number
+  1. Read an input from standard input; 
+  1. and parse the input into a number; log errors if failed
+  1. match the user guess with the secre number
+  1. if user guess is smaller than secret then give a hint to enter a larger number
+  1. if user guess is larger than the secret then give a hint to enter smaller number
+  1. if match is equal then congrat the user and quit 
+  1. loop to the step 1   
+
+---
+
+## Rust Code for guess game
+```rust
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+fn main() {
+    // Generate a secret b/w 1 and 100
+    let secret_number = rand::thread_rng().gen_range(1, 101);
+    println!("Guess the Number I generated randomly");
+    loop {
+        let mut guess = String::new();
+        io::stdin().read_line(&mut guess) // read a string
+            .expect("Error readin stdin"); //panic if read fails
+        let guess: u32 = guess.trim().parse() //trim the input and parse it into number
+            .expect("Input not a number!"); //panic if failed
+        match guess.cmp(&secret_number) { // match the input guess and secret
+            Ordering::Less => println!("Wrong guess! Go for some bigger number"),
+            Ordering::Greater => println!("Wrong guess! Go for some smaller number"),
+            Ordering::Equal => {
+                println!("You won! You guessed the correct number:{}", secret_number);
+                break; // quit from the loop
+            }
+        }
+    }
+}
+```
+???
+**Note:**
+We can walk thru the code in subsequent slides
+
+---
+
+## Crates and Traits
+First two lines of the program brings two standard library types into program scope
+```cpp
+//Standard Library IO types 
+use std::io;
+//std::cmp::Ordering is enum with values Less, Greater, and Equal
+use std::cmp::Ordering;
+```
+* A crate is a package or collection of Rust source code files
+  * `std` is Standard library **crate**;
+
+* A trait is a OOP concept used to define or extend the functionality of a class. 
+  * `std::io` is a trait that defines methods to acess standard I/O
+
+* `use` keyword  brings the types and functions of a given trait into scope of this package
+
+---
+
+## External crate and its versions
+* In addition to standard library crate, we can also use an external crate;
+* To generate a random number we have used an external crate `rand`
+```cpp
+// rand is an external crate
+// Rng is a trait that has the definitions for random number generation
+use rand::Rng;
+```
+
+_External crate dependency is defined in `Cargo.toml` in the section `[dependencies]`_
+```cpp
+[dependencies]
+rand = "0.5.5"
+```
+* The version denotes semantic version which means to use the stable version >= "0.5.5"
+
+* First build will check and import the stable version >= "0.5.5; e.g. "0.5.6"
+
+* `Cargo.lock` is genearated on first build with all dependency versions
+
+* Next subsequent builds will consistently use the same "0.5.6" version unitl explictely update
+
+---
+
+## How to update external crates?
+**How to update a crate to next minor version?**
+* simply run `cargo update`
+    ```bash
+    $ cargo update
+        Updating crates.io index
+        Updating rand v0.5.5 -> v0.5.6
+    ```
+* This will only update the minor versions and also locks the versions in `Cargo.lock` 
+
+**How to update to next major version?**
+* For example to update to major version `0.6.0` or to any other version in this series, we need to edit the `Cargo.toml`
+    ```bash
+    [dependencies]
+    rand = "0.6.0"
+    ```
+* Next `cargo build` will update the registry of crates available and imports the new version we have specified
+
+* Cargo makes it very easy to manage the external package dependencies
+
+???
+**Notes:**
+* _Where is the repository for crates?_
+  * _Cargo tool downloads the stable version which is equal to or above the specified version first time when we build our package_
+  * _The downloaded version is locked in cargo.lock file so that all subsequent builds can use the same version so that our final package is stable every time we build it._
+
+---
+
+## Random Number Generator
+First statement line in main function `fn main()` generates the random number
+```cpp
+// Generate a secret b/w 1 and 100
+let secret_number = rand::thread_rng().gen_range(1, 101);
+```
+
+* `rand::thread_rng()` is a function that returns a thread-local random number generator
+
+* `rand::Rng` is a trait that defines the random number generator and its methods like `gen_range()`
+ 
+* `gen_range()` function takes two numbers low and high as arguments and generates a random number
+
+* random number includes the low but excludes high; So the generated number will be between 1 and 100.
+
+---
+
+## Unconditional Loop
+* The statement with keyword `loop` starts an unconditional loop
+    ```cpp
+    loop {
+        ...
+    }
+    ```
+_Other loop expression in Rust are_
+* **while**
+   ```cpp
+    while !done {
+        ... 
+        //do something until done = true
+    }
+    ```
+* **for**
+    ```cpp
+    for var in expression {
+        //Repeate for each var from the series of elements generated
+        // out of expression
+    }
+    ```
+---
+
+## Rust Variables are Immutable by default
+First statement in the loop is to create a string variable
+```cpp
+let mut guess = String::new();
+```
+* In Rust `let` keyword creates a variable
+* By default, all variables are _immutable_ in Rust; So `secret_number` is an _immutable_ variable
+* Use `mut` before a variable name to make it _mutable_; `guess` is a mutable string; we can modify the contents of this variable.
+* `String` is a standard library type to handle utf-8 strings in Rust.
+* `new()` is an associated function (static methods in some languages).
+* In Rust, we generally define the static method `new()` for each type
+
+---
+
+## Read from standard input
+Now the next statement reads a string of characters from standard input
+```cpp
+io::stdin().read_line(&mut guess) // read a string
+            .expect("Error readin stdin"); //panic if read fails
+```
+* Function `io::stdin()` returns a handle to standard input stream
+
+* Function call `.read_line(&mut guess)` is invoked on the standard input handle
+
+* It expects a mutable reference to string as input paramter
+
+* It reads the line of characters from standard input and stores the string into strguess
+
+---
+
+## `Result`: Basic error hanlding with enum types
+* In Rust, return values of functions are mostly encoded as enum types with type name `Result`
+* An enum type as fixed set of values; These values are also called as enum variants
+* The variants of a `Result` are different for each function definition
+
+```cpp
+io::stdin().read_line(&mut guess) // read a string
+            .expect("Error readin stdin"); //panic if read fails
+```
+
+* I/O function `read_line()` returns an enum `io::Result<usize, Error>`
+  * `io::Result` has two variants: `Ok` and `Err`
+
+* `Err` denotes a failure; 
+  * `expect()` on `Err` variant displays the error message and stops the program execution
+* `Ok` denotes the success; In this case `Ok` holds the number of bytes that read from input
+   * `expect()` call on `Ok` just return those number of bytes from `Ok` variant
+
+* `Ok` variant of other `Result` type may contain a different value depending on the function definition
+
+---
+
+## Shadow the variable
+The next statement converts string `guess` into an integer variable `guess`
+```cpp
+let guess: u32 = guess.trim().parse() //trim the input and parse it into number
+    .expect("Input not a number!"); //panic if failed
+```
+* Rust allows us to shadow the variable names in the same code block;
+  * which means we can reuse the variable name `guess` to bind it to a new value of a different type.
+* In the above code, we are rebinding the name `guess` to the final generated u32 integer.
+* We generally use this feature, when we convert from one type to another and the previous one is no longer useful.
+* We can avoid two different variables like guess_str and guess_num etc.
+
+---
+
+## match control operator
+Finally we are comparing the user input `guess` with the `secret_number`
+```cpp
+match guess.cmp(&secret_number) { // match the input guess and secret
+    Ordering::Less => println!("Wrong guess! Go for some bigger number"),
+    Ordering::Greater => println!("Wrong guess! Go for some smaller number"),
+    Ordering::Equal => {
+        println!("You won! You guessed the correct number:{}", secret_number);
+        break; // quit from the loop
+    }
+```
+* `match` operator has multiple arms depending on the values of match expression
+    ```cpp
+    match expression {
+        value1 => expression 1, value2 => expression 2,  ... valueN => expression N,
+    }
+    ```
+* In our code `guess.cmp()` returns a variant of enum type `std::cmp::Ordering`; It has 3 variants `Less`, `Greater` and `Equal`.
+* So our match operator has 3 arms to match and one of the matching expression is evaluated
+* Program will come out of the loop with `break` keyword, when the guess is equal to secret_number
+
+---
+class: middle
+# Questions

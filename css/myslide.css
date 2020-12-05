@@ -2,7 +2,7 @@ body {
     background-color: rgb(219, 214, 208);
 }
 
-h1, h5 {
+h1, h3, h5 {
     color: rgb(33, 65, 122);
     text-align: center;
     background-color: linen;

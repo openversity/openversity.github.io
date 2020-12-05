@@ -18,10 +18,10 @@ class: middle, center
 
 ---
 
-## Learning Rust
-* Unlike other languages, it is very tricky to learn Rust by directly jump into coding.
+## How to Learn Rust?
+* Unlike other languages, without understanding the Rust concepts, it is very tricky to learn Rust by directly jump into coding.
 * This is the first con about the Rust language.
-* We need to understand few important concepts of Rust, before we start writing some code samples
+* So understand the conecpt and apply it in a program; We need to first understand few important concepts of Rust, before we start writing some code samples
 * Otherwise understanding the code snippets from code samples would quickly become frustating and boring. 
 
 ---
