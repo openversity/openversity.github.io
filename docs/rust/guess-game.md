@@ -44,6 +44,11 @@ $ tree
 └── src
     └── main.rs
 ```
+
+???
+**Note:** 
+Cargo.lock is created only after first build
+
 ---
 
 ## Cargo.toml
@@ -146,16 +151,16 @@ We can walk thru the code in subsequent slides
 
 ## Crates and Traits
 First two lines of the program brings two standard library types into program scope
-```cpp
+```rust
 //Standard Library IO types 
 use std::io;
 //std::cmp::Ordering is enum with values Less, Greater, and Equal
 use std::cmp::Ordering;
 ```
-* A crate is a package or collection of Rust source code files
-  * `std` is Standard library **crate**;
+* A _**crate**_ is a package or collection of Rust source code files
+  * `std` is Standard library crate;
 
-* A trait is a OOP concept used to define or extend the functionality of a class. 
+* A _**trait**_ is a OOP concept used to define or extend the functionality of a class. 
   * `std::io` is a trait that defines methods to acess standard I/O
 
 * `use` keyword  brings the types and functions of a given trait into scope of this package
@@ -163,16 +168,15 @@ use std::cmp::Ordering;
 ---
 
 ## External crate and its versions
-* In addition to standard library crate, we can also use an external crate;
-* To generate a random number we have used an external crate `rand`
-```cpp
+In addition to standard library crate `std`, we have used an external crate `rand` to generate a random number 
+```rust
 // rand is an external crate
 // Rng is a trait that has the definitions for random number generation
 use rand::Rng;
 ```
 
 _External crate dependency is defined in `Cargo.toml` in the section `[dependencies]`_
-```cpp
+```bash
 [dependencies]
 rand = "0.5.5"
 ```
@@ -215,8 +219,8 @@ rand = "0.5.5"
 ---
 
 ## Random Number Generator
-First statement line in main function `fn main()` generates the random number
-```cpp
+First line in main function `fn main()` generates the random number
+```rust
 // Generate a secret b/w 1 and 100
 let secret_number = rand::thread_rng().gen_range(1, 101);
 ```
@@ -233,21 +237,21 @@ let secret_number = rand::thread_rng().gen_range(1, 101);
 
 ## Unconditional Loop
 * The statement with keyword `loop` starts an unconditional loop
-    ```cpp
+    ```rust
     loop {
         ...
     }
     ```
 _Other loop expression in Rust are_
 * **while**
-   ```cpp
+   ```rust
     while !done {
         ... 
         //do something until done = true
     }
     ```
 * **for**
-    ```cpp
+    ```rust
     for var in expression {
         //Repeate for each var from the series of elements generated
         // out of expression
@@ -257,7 +261,7 @@ _Other loop expression in Rust are_
 
 ## Rust Variables are Immutable by default
 First statement in the loop is to create a string variable
-```cpp
+```rust
 let mut guess = String::new();
 ```
 * In Rust `let` keyword creates a variable
@@ -271,7 +275,7 @@ let mut guess = String::new();
 
 ## Read from standard input
 Now the next statement reads a string of characters from standard input
-```cpp
+```rust
 io::stdin().read_line(&mut guess) // read a string
             .expect("Error readin stdin"); //panic if read fails
 ```
@@ -290,7 +294,7 @@ io::stdin().read_line(&mut guess) // read a string
 * An enum type as fixed set of values; These values are also called as enum variants
 * The variants of a `Result` are different for each function definition
 
-```cpp
+```rust
 io::stdin().read_line(&mut guess) // read a string
             .expect("Error readin stdin"); //panic if read fails
 ```
@@ -309,7 +313,7 @@ io::stdin().read_line(&mut guess) // read a string
 
 ## Shadow the variable
 The next statement converts string `guess` into an integer variable `guess`
-```cpp
+```rust
 let guess: u32 = guess.trim().parse() //trim the input and parse it into number
     .expect("Input not a number!"); //panic if failed
 ```
@@ -323,7 +327,7 @@ let guess: u32 = guess.trim().parse() //trim the input and parse it into number
 
 ## match control operator
 Finally we are comparing the user input `guess` with the `secret_number`
-```cpp
+```rust
 match guess.cmp(&secret_number) { // match the input guess and secret
     Ordering::Less => println!("Wrong guess! Go for some bigger number"),
     Ordering::Greater => println!("Wrong guess! Go for some smaller number"),
@@ -333,7 +337,7 @@ match guess.cmp(&secret_number) { // match the input guess and secret
     }
 ```
 * `match` operator has multiple arms depending on the values of match expression
-    ```cpp
+    ```rust
     match expression {
         value1 => expression 1, value2 => expression 2,  ... valueN => expression N,
     }
