@@ -198,6 +198,35 @@ let z = 'ℤ';
 * Arrays can not grow in size; We can use standard library collection `Vector` which is allocated on heap and can grow and shrink in size 
 
 ---
+## Functions
+* Functions are defined in rust using keyword `fn`
+* `fn main()` is the entry point of a rust program
+* functions can be defined any where in the program
+* function take parameters and can return values
+* return type is specified using arrow **`->`**
+    ```rust
+    fn main() {
+        let x = 6;
+        let y = 4;
+        println!("Sum of {} and {}  = {}", x, ,y, sum(x,y));
+    }
+
+    //Function returns 32-bit integer
+    fn sum(x: i32, y:i32) -> i32{
+        x + y
+    }
+    ```
+* Return statement can be implicite with last expression without semi colon;
+* Also `return` key word can be used to return early from the function
+
+---
+## Control Flow
+**`if` control flow** 
+
+**Loops**
+
+
+---
 ## Summary
 * Rust is statically typed language
 * Rust has 4 scalar types: integers, floats, boolean, char
