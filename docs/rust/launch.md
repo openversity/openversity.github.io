@@ -1,6 +1,6 @@
 ---
 exclude: true
-layout: presentation
+layout: default
 title: LaunchPad
 parent: The Rust Workshop
 nav_order: 1
