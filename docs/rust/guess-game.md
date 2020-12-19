@@ -265,7 +265,7 @@ First statement in the loop is to create a string variable
 let mut guess = String::new();
 ```
 * In Rust `let` keyword creates a variable
-* By default, all variables are _immutable_ in Rust; So `secret_number` is an _immutable_ variable
+* By default, all variables are _immutable_ in Rust; So `secret_number` in the code is an _immutable_ variable
 * Use `mut` before a variable name to make it _mutable_; `guess` is a mutable string; we can modify the contents of this variable.
 * `String` is a standard library type to handle utf-8 strings in Rust.
 * `new()` is an associated function (static methods in some languages).
@@ -283,13 +283,15 @@ io::stdin().read_line(&mut guess) // read a string
 
 * Function call `.read_line(&mut guess)` is invoked on the standard input handle
 
-* It expects a mutable reference to string as input paramter
+* The `&` symbol indicates that the arguemnt is a **reference**; `&mut` indicates a mutable reference. 
 
-* It reads the line of characters from standard input and stores the string into strguess
+* `read_line()` expected a mutable reference as an argument
+
+* It reads the line of characters from standard input into the string argument reference
 
 ---
 
-## `Result`: Basic error hanlding with enum types
+## `Result`: Basic error hanlding with enums and `expect()`
 * In Rust, return values of functions are mostly encoded as enum types with type name `Result`
 * An enum type as fixed set of values; These values are also called as enum variants
 * The variants of a `Result` are different for each function definition
@@ -347,5 +349,17 @@ match guess.cmp(&secret_number) { // match the input guess and secret
 * Program will come out of the loop with `break` keyword, when the guess is equal to secret_number
 
 ---
+
+## Summary
+* Cargo tool plays the role every where; It manages the external crates
+* There are 3 loops in Rust `loop`, `while`, and `for`
+* Rust variable are immutable
+* Rust variable can be shadowed
+* Reference are used to referto same value or object
+* Error handling is done thourgh enum `Result`
+* `match` is the powerful expression for comparing values
+
+---
+
 class: middle
 # Questions
