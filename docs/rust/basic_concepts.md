@@ -202,7 +202,7 @@ let z = 'ℤ';
 * Functions are defined in rust using keyword `fn`
 * `fn main()` is the entry point of a rust program
 * functions can be defined any where in the program
-* function take parameters and can return values
+* function body block has statements and expressions
 * return type is specified using arrow **`->`**
     ```rust
     fn main() {
@@ -212,19 +212,53 @@ let z = 'ℤ';
     }
 
     //Function returns 32-bit integer
-    fn sum(x: i32, y:i32) -> i32{
+    fn sum(x: i32, y:i32) -> i32 {
         x + y
     }
     ```
-* Return statement can be implicite with last expression without semi colon;
-* Also `return` key word can be used to return early from the function
+* Function return value is implicite with last expression without semi colon;
+* In rust, a block itself can be an expression if it has an expression at the end without semicolan
+* So the following statement is valid in rust
+    ```rust
+    let avg = {
+        let sum = 700;
+        let count = 7; 
+        sum / count
+    }
+    ```
+
+* To return early from the function we can use explicite `return`
 
 ---
 ## Control Flow
-**`if` control flow** 
+**Branching with `if`** 
+* if condition must always be a boolean expression; rust does not convert other types to boolean
+    ```rust
+    if n % 2 == 0 {
+        println!("{} is an even number", n);
+    } else {
+        println!("{} is an odd number", n)
+    }
+    ```
+* similar to other languages, we can chain with multiple `else if` blocks
+* if blocks can also be an expression and can be assinged to a variable
+    ```rust
+    let days = if year % 100 == 0 {365} else {366} 
+    println!("Year:{} has Days:{}", year, days);
+    ```
 
-**Loops**
+**Branching with `match`**
+* Branching with `match` is more powerful than with multiple if blocks
 
+
+**Repetion with `loop`**
+* loop {}
+
+**Repetion with `while`**
+* while condition {}
+
+**Repetion with `for`**
+* for var in list {}
 
 ---
 ## Summary
