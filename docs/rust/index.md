@@ -6,6 +6,3 @@ has_children: true
 ---
 
 # The Rust Workshop
-[Launch](launch.md)
-[The Guess Game](guess-game.md)
-[Basic Concepts](basic_concepts.md)
