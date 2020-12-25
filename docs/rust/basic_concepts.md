@@ -54,20 +54,20 @@ Variables are declared using `let` keyword and are immutable by default; one of 
 
 ---
 ## Variable Shadowing
-Same variable name can be re-declared with in the scope with different value; 
+Same variable name can be re-declared with in the same scope with different type and value;
 * Re-declaration will shadow the previous type and value
 * Following code is valid and compiles;
     ```rust
     fn main() {
         let token_number = "100";
-        let token_number = 101;
+        let token_number:u32 = token_number.trim().parse().expect("Parse Failed!");
         let token_number = token_number + 1;
-        println!("The value of x is: {}", x);
+        println!("Next Token: {}", token_number);
     }
     ```
-* Every time we use `let` with same name we are shadowing the previous value and data type; 
-* It will be useful when the value needs to be transformed to a different data type like the case above; 
-* By this facility, we cn avoid declaring two variables like `str_token_number` and `token_number`
+* Every time we use `let` with same name we are shadowing the previous value and data type;
+* This is useful when the value needs to be transformed to a different data type like the case above;
+* This helps to use the same varible instead of two variables like `str_token_number` and `token_number`
 
 ---
 ## Constants
@@ -76,8 +76,14 @@ A constant is declared using `const` keyword and must always be annotated with t
 const PI: f32 = 3.141;
 ```
 * PI is a float constant and is always immutable.
-* Unlike a variable rust constants can NOT be re-bound to another value.
+* A constants can NOT be re-bound to another value or redefined in the same scope
 * Constant can be declared in any **scope** including the global scope.
+    ```rust
+    const PI: f32 = 3.141;
+    fn main() {
+        println!("PI={}", PI);
+    }
+    ```
 * Constants live thru the entire time the program runs.
 * Constant can be only set to a constant expression which can be evaluated at compile time.
  
