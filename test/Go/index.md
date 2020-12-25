@@ -6,4 +6,4 @@ has_children: true
 ---
 
 # The Go Workshop
-[Launch](launch.md)
+[Launchpad](launch.md)

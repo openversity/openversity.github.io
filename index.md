@@ -8,5 +8,4 @@ permalink: /
 
 # Welcome to Openveristy 
 ## The learning Hub
-
-
+* [Rust Workshop](/docs/rust)
