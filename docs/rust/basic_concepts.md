@@ -17,7 +17,6 @@ class: middle, center
 # Basic Concepts
 
 ---
-
 name: agenda
 ## Agenda
 * **Variables & Constants**

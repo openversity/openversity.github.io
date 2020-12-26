@@ -17,7 +17,6 @@ class: middle, center
 # Rust Launch Pad
 
 ---
-
 ## How to Learn Rust?
 * Unlike other languages, without understanding the Rust concepts, it is very tricky to learn Rust by directly jump into coding.
 * This is the first con about the Rust language.
@@ -25,26 +24,25 @@ class: middle, center
 * Otherwise understanding the code snippets from code samples would quickly become frustating and boring. 
 
 ---
-
 ## Learning Resourses
 Few important web links and books to start with:
-> * **The Rust Programming Language**
-> * **Rust By Example**
-> * **Rustlings**: The command line version of Rust Guide
-> * It is a good idea to finish the fitst 4 chapters of **The Rust Programming Language** completely so that we can get familiar with most imoprtant rust language concepts
+* **The Rust Programming Language**
+  * It is a good idea to finish the fitst 4 chapters completely so that we can get familiar with most imoprtant rust language concepts
+* **Rust By Example**
+  * Step by step examples
+* **Rustlings**: The command line version of Rust Guide
 
 ---
-
 ## Tools required
-> * Rust Tools Chain
->   * Rust compiler
->   * Rust Build and package manager
-> * **rustup** : Tool to upgrade to the latest version of the rust tool chain
-> * Your favorite Editor
->   * vim / emacs / vscode with readymade extensions 
+* Rust Tool Chain
+  * Rust compiler `rustc`
+  * Rust Build and package manager `cargo`
+  * Rust update tool `rustup`
+* Your favorite Editor
+  * vim / emacs / vscode 
+> vscode has readymade extensions 
 
 ---
-
 ## How to install Rust tool chain?
 All you need to do is run the following command in any Nix OS which will install the rust tools; 
 
@@ -78,7 +76,6 @@ OPTIONS
 ```
 
 ---
-
 ## How to update the Rust tool chain
 
 ```
@@ -90,8 +87,8 @@ info: checking for self-updates
 
 info: cleaning up downloads & tmp directories
 ```
----
 
+---
 ## Rust Tool chain is ready for development
 * `rustc` is a compiler
 * `cargo` is a package manager
@@ -100,7 +97,6 @@ info: cleaning up downloads & tmp directories
 * Go to next section for more details about the `cargo`
 
 ---
-
 ## The Cargo Tool
 
 ### Create a project
@@ -108,26 +104,26 @@ info: cleaning up downloads & tmp directories
 cargo new project_hello
 cd project_hello/
 ```
---
 
+--
 ### Check the code for errors without build
 ```
 cargo check
 ```
---
 
+--
 ### Build the code
 ```
 cargo build
 ```
----
 
+---
 ### Test the code
 ```
 cargo test
 ```
---
 
+--
 ### And Run the code
 ```
 $ cargo run
@@ -136,17 +132,16 @@ $ cargo run
 Hello, world!
 $
 ```
---
 
+--
 ### Release the code with optimizaitons for production
 ```
 cargo build --release
 ```
----
 
+---
 ## Next Steps
 * We need some editor to write rust programs
 * Most convenient editor is **vscode**; it has readymade extension for rust development;
 * One recommended extension is rust-analyzer; it is also availble for other editors
 * One can use his choice of editor like vim and emacs.
-
