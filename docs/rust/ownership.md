@@ -14,12 +14,43 @@ exclude: true
 name: agenda
 ## Agenda
 * **Ownership**
+
 * **References & Borrowing**
+
 * **Slices**
+
 * **Memory Layout**
 
 ---
-## Ownership of Heap Memory
+## Ownership
+* Who is the owner of an allocated memory on the heap
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+    void process_slot(int *slot)
+    {
+        printf("slot number:%d", *slot);
+        free(slot);
+    }
+    
+    void main()
+    {
+        int *slot = (int *)malloc(sizeof(int));
+        *slot = 7;
+        process_slot(slot);
+    
+        process_slot(slot); //use after free
+    }
+    ```
+* memory for slot is allocated in main(); So memory shold be owned with slot pointer inside main()
+
+---
+## Ownership
+* No Explicit `free` is required
+--
+
+---
+## Ownership
 **There can only be one owner at a time**
 * No explicite memory management is required;
 * No garbage collecor involved
@@ -35,8 +66,7 @@ name: agenda
     ```
 * Memory for `s1` will get freed automatically at `'}'`
 * Rust calls a special function called `drop` for each object going out of scope
-
-> In C++, this techniq is called __RAII__
+> In C++, this technique is called __RAII__
 
 ---
 ## Transfer of Ownership
@@ -95,8 +125,8 @@ name: agenda
     ```
 
 ---
-## References to borrow the access
-References are a way of accessing the data by borrow, i.e. without transfer of ownership.
+## Reference to borrow the access
+References are used to borrow the access to the data without transfer of ownership.  
 * Reference to a variable/object is denoted using `&`
     ```rust
     let msg = String::from("WELCOME");
@@ -109,9 +139,9 @@ References are a way of accessing the data by borrow, i.e. without transfer of o
     ```
 
 ---
-## References to modify 
-* References to the data are immutable by default
-* We can use mutable reference to borrow the access to data as well as modify
+## Reference to Modify the data
+* References to the data are immutable by default.
+* We can use **mutable** reference to borrow the access to modify the data.
     ```rust
     let msg = String::from("WELCOME");
     display(&msg); //Only reference is passed; Ownership not moved
@@ -124,8 +154,10 @@ References are a way of accessing the data by borrow, i.e. without transfer of o
     ```
 
 ---
-## References and race condtions
-* We can have only one mutable reference in the given scope.
+## Reference and race conditions
+* Rust assures no race conditions
+
+* There can be only one mutable reference in a given scope.
     ```rust
     {
         let msg = String::from("WELCOME");
@@ -143,13 +175,17 @@ References are a way of accessing the data by borrow, i.e. without transfer of o
     }
     ```
 
+---
+## Scope of a Reference
 * Scope of a reference ends after its last usage
     ```rust
     {
         let msg = String::from("WELCOME");
-        let s1 = &msg; //read reference
-        println!("message:{}", s1); //This is OK
-        let s2 = &mut msg;
+        let s1 = &msg; // read reference
+        println!("message:{}", s1); // s1 scope ends here
+        let s2 = &mut msg; // we can have a mutable reference
+        // s2 scope continues till its last use
+        println!("message:{}", s1); // Can not use s1
     }
     ```
 
@@ -158,4 +194,10 @@ References are a way of accessing the data by borrow, i.e. without transfer of o
 
 
 ---
-##Summary
+## Slice Type
+
+---
+## Summary
+
+---
+## Questions
