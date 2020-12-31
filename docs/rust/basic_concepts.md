@@ -91,22 +91,24 @@ _Note: Constants names are in uppercase in rust by convention._
 ---
 ## Data Types
 Rust is a statically typed language; Variables must be declared at compile time with data type
-* Rust has following scalar types
+* Scalar types
     * **Signed Integers** : `i8, i16, i32, i64, i128, isize`
     * **Un-Signed Integers** : `u8, u16, u32, u64, u128, usize`
     * **floats** : `f16, f32`
     * **Boolean** : `bool`
     * **Characters** : `char`
-* And following compound types
-  * Tuple
+* Compound types
+  * Tuples
   * Arrays
   * Structs
-* There are standard library types like `String`
+* Standard library types like `String`
 
 * Data type can be inferred at compile time with the help of assigned value
     ```rust
-    let token_number = "100"; //Inferred type as String
+    let token_start = "100"; //Inferred type as String
     let token_number:u32 = token_number.parse().expect("Not a number");
+
+    let next_token = token_number; //Inferred type as integer u32
     ```
 
 ---
@@ -159,7 +161,11 @@ let z = 'ℤ';
 ```
 
 ---
-## Compound Types - Tuple
+## Compound Types
+* Tuple, Array and Struct
+
+---
+### Tuples
 * A tuple is a group of related values; values can be of different types
 * Tuple is fixed in length and cannot grow or shrink once created
     ```rust
@@ -180,7 +186,7 @@ let z = 'ℤ';
     ```
 
 ---
-## Compound Types - Arrays
+### Arrays
 * Array is a fixed size collection of values of similar type
     ```rust
     fn main() {
@@ -201,9 +207,38 @@ let z = 'ℤ';
 * Arrays can not grow in size; We can use standard library collection `Vector` which is allocated on heap and can grow and shrink in size 
 
 ---
-## Compound Types - structs
+### Structs
+* structs are user defined types
+    ```rust
+    struct User {
+        username: String,
+        email: String,
+        sign_in_count: u64,
+        active: bool,
+    }
+    
+    fn main() {
+        let user1 = User {
+            email: String::from("someone@example.com"),
+            username: String::from("someusername123"),
+            active: true,
+            sign_in_count: 1,
+        };
+    }
+    ```
 
-##### -- TBD --
+---
+### Tuple Structs
+* Tuple Structs are structs without field names
+    ```rust
+    fn main() {
+        struct Color(u32, u32, u32);
+        struct Point(i32, i32, i32);
+    
+        let black = Color(0, 0, 0);
+        let origin = Point(0, 0, 0);
+    }
+    ```
 
 ---
 ## Functions
@@ -354,7 +389,7 @@ let z = 'ℤ';
         token += counter; // This is a comment at the end of statement
     ```
 
-* _Documentation Commnets - Supports markdown syntax_
+* _Documentation Comments - Supports markdown syntax_
     ```rust
     /// **Returns the next Token**
     /// _Example_
