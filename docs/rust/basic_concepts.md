@@ -52,7 +52,7 @@ Variables are declared using `let` keyword and are immutable by default; one of 
     ```
 
 ---
-## Variable Shadowing
+### Variable Shadowing
 Same variable name can be re-declared with in the same scope with different type and value;
 * Re-declaration will shadow the previous type and value
 * Following code is valid and compiles;
@@ -91,23 +91,23 @@ _Note: Constants names are in uppercase in rust by convention._
 ---
 ## Data Types
 Rust is a statically typed language; Variables must be declared at compile time with data type
-* Data type can be inferred at compile time with the help of assigned value
-    ```rust
-    let token_number = "100"; //Inferred type as string
-    let token_number:u32 = token_number.parse().expect("Not a number");
-    ```
-* Rust has 4 scalar types
-  * **Integers** : `i8, i16, i32, i64, i128, isize, u8, u16, u32, u64, u128, usize`
-  * **floats** : `f16, f32`
-  * **Boolean** : `bool`
-  * **Characters** : `char`
-
-> Note: `u` refers to unsigned integer variants; `isize` or `usize` refers to arch specific integer sizes; i.e. i32 in 32-bit and i64 in 64-bit cpu architecture
-
-* Rust has following compound types
+* Rust has following scalar types
+    * **Signed Integers** : `i8, i16, i32, i64, i128, isize`
+    * **Un-Signed Integers** : `u8, u16, u32, u64, u128, usize`
+    * **floats** : `f16, f32`
+    * **Boolean** : `bool`
+    * **Characters** : `char`
+* And following compound types
   * Tuple
   * Arrays
   * Structs
+* There are standard library types like `String`
+
+* Data type can be inferred at compile time with the help of assigned value
+    ```rust
+    let token_number = "100"; //Inferred type as String
+    let token_number:u32 = token_number.parse().expect("Not a number");
+    ```
 
 ---
 ## Integer literals
@@ -201,6 +201,11 @@ let z = 'ℤ';
 * Arrays can not grow in size; We can use standard library collection `Vector` which is allocated on heap and can grow and shrink in size 
 
 ---
+## Compound Types - structs
+
+##### -- TBD --
+
+---
 ## Functions
 * Functions are defined in rust using keyword `fn`
 * `fn main()` is the entry point of a rust program
@@ -223,7 +228,7 @@ let z = 'ℤ';
 * To return early from the function we can use explicite `return`
 
 ---
-## Block Expressions
+## Blocks as Expressions
 * In rust, a block itself can be an expression if it has an expression at the end without semicolan
 * So the following statement is valid in rust
     ```rust
@@ -239,8 +244,18 @@ let z = 'ℤ';
 * Even control blocks like `if`, `loop` etc., can be represented as expressions in rust and they can be assigned to a varible
  
 ---
-## Control Flows - Branching
-**Branching with `if`** 
+## Control Flows
+* Branching Controls
+  * `if`
+  * `match`
+
+* Reptetion Controls
+    * `loop`
+    * `while`
+    * `for`
+
+---
+### Branching with `if`
 * if condition must always be a boolean expression; rust does not convert other types to boolean
     ```rust
     if n % 2 == 0 {
@@ -256,10 +271,12 @@ let z = 'ℤ';
     println!("Year:{} has Days:{}", year, days);
     ```
 
-**Branching with `match`**: Branching with `match` is more powerful than with multiple if blocks
+---
+### Branching with `match`
+* `match` expression is more powerful than `if` with multiple blocks
 
 ---
-## Control Flows - Repetition using `loop`
+### Repetition using `loop`
 * `loop { ... }` can be used to run a block forever until we break
     ```rust
     loop {
@@ -283,7 +300,7 @@ let z = 'ℤ';
     ```
 
 ---
-## Control Flows - Repetition using `while`
+### Repetition using `while`
 * `while condition { ... }` can be used to repeat the code block until condition becomes false
     ```rust
     fn main() {
@@ -298,7 +315,7 @@ let z = 'ℤ';
     ```
 
 ---
-## Control Flows: Repetition using `for`
+### Repetition using `for`
 * `for` is the safer control to iterate over the elements of a collection like array or vector
     ```rust
     fn main() {
@@ -323,10 +340,42 @@ let z = 'ℤ';
     ```
 
 ---
+## Comments
+* _Code comments_
+    ```rust
+        // This is a simple comment
+        let counter = 1;
+        
+        // This is a multiline comment
+        // each line should prefix with //
+        // token reset to 100
+        let mut token = 100;
+        
+        token += counter; // This is a comment at the end of statement
+    ```
+
+* _Documentation Commnets - Supports markdown syntax_
+    ```rust
+    /// **Returns the next Token**
+    /// _Example_
+    ///    let next = get_token();
+    ///    println!("Next token: {}", next);
+    pub fn get_token() -> i32 {
+        counter += 1;
+        counter
+    }
+    ```
+    
+---
 ## Summary
 * Rust is statically typed language
+
 * Rust has 4 scalar types: integers, floats, boolean, char
+
 * Rust has 3 compound types: tuple, array and struct
+
 * Rust has `if` and `macth` for branching
-* `loop` and `while` are for repetitions
+
+* `loop` and `while` are used to repeate statements
+
 * `for` is suitable to iterate over Collecions and Ranges
