@@ -146,7 +146,7 @@ name: agenda
     ```
 
 ---
-## Reference to borrow the access
+## Borrowing Ownership
 References are used to borrow the access to the data without transfer of ownership.  
 * Reference to a variable/object is denoted using `&`
     ```rust
