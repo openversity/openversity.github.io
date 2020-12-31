@@ -3,7 +3,7 @@ exclude: true
 layout: default
 title: Basic Concepts
 parent: The Rust Workshop
-nav_order: 3
+nav_order: 4
 ---
 
 exclude: true

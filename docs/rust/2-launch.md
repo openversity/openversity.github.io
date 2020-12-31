@@ -3,7 +3,7 @@ exclude: true
 layout: default
 title: LaunchPad
 parent: The Rust Workshop
-nav_order: 1
+nav_order: 2
 ---
 
 exclude: true

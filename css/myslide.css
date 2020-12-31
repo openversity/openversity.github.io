@@ -2,16 +2,28 @@ body {
     background-color: rgb(219, 214, 208);
 }
 
-h1, h3, h5 {
+h1 {
     color: rgb(33, 65, 122);
     text-align: center;
     background-color: linen;
 }
 
-h2,h6 {
+h2 {
+    color_2: rgb(100, 37, 11);
+    background-color: lightblue;
+    text-align: left;
+}
+
+h3, h5 {
+    color: rgb(33, 65, 122);
+    text-align: center;
+    background-color: linen;
+}
+
+h4, h6 {
     color: rgb(100, 37, 11);
     background-color: lightblue;
-    text-align: center;
+    text-align: left;
 }
 
 p {

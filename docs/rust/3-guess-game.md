@@ -3,7 +3,7 @@ exclude: true
 layout: default
 title: The Guess Game
 parent: The Rust Workshop
-nav_order: 2
+nav_order: 3
 ---
 
 exclude: true
