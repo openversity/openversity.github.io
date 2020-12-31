@@ -19,19 +19,45 @@ class: middle, center
 ---
 name: agenda
 ## Agenda
-* **Variables & Constants**
+* **Data Types and Variables**
 
-* **Data Types: Scalar & Compound**
+* **Mutability & Shadowing**
+
+* **Constants and Literals**
+
+* **Compound & User Defined types**
 
 * **Functions**
 
-* **Control Flow**
+* **Control Flows**
 
 * **Comments**
 
 ---
-## Variables
-Variables are declared using `let` keyword and are immutable by default; one of the safety that Rust offers while we write concurrent code;
+## Data Types & Variables
+Rust is a _statically typed_ language; Variables must be declared at compile time with data type
+* Scalar types
+    * **Signed Integers** : `i8, i16, i32, i64, i128, isize`
+    * **Un-Signed Integers** : `u8, u16, u32, u64, u128, usize`
+    * **floats** : `f16, f32`
+    * **Boolean** : `bool`
+    * **Characters** : `char`
+
+* Compound types: Tuples, Arrays, Structs and Enums
+
+* Standard library types like `String`
+
+**_Variables_** are declared using `let` keyword; Data type can be explicitely specified or inferred from assigned value.
+```rust
+let token_start = "100"; //Inferred type as String
+let token_number:u32 = token_number.parse().expect("Not a number");
+
+let next_token = token_number; //Inferred type as integer u32
+```
+
+---
+## Variable are Immutabile
+Variables in Rust are immutable by default; one of the safety that Rust offers while we write concurrent code;
 * Following code will NOT compile
     ```rust
     fn main() {
@@ -65,8 +91,8 @@ Same variable name can be re-declared with in the same scope with different type
     }
     ```
 * Every time we use `let` with same name we are shadowing the previous value and data type;
-* This is useful when the value needs to be transformed to a different data type like the case above;
-* This helps to use the same varible instead of two variables like `str_token_number` and `token_number`
+* This is useful when the value needs to be transformed to a different data type like the case above; 
+* It is clean to re-use the same variable name instead of creating two variables like `str_token_number` and `token_number`.
 
 ---
 ## Constants
@@ -86,30 +112,7 @@ const PI: f32 = 3.141;
 * Constants live thru the entire time the program runs.
 * Constant can be only set to a constant expression which can be evaluated at compile time.
  
-_Note: Constants names are in uppercase in rust by convention._
-
----
-## Data Types
-Rust is a statically typed language; Variables must be declared at compile time with data type
-* Scalar types
-    * **Signed Integers** : `i8, i16, i32, i64, i128, isize`
-    * **Un-Signed Integers** : `u8, u16, u32, u64, u128, usize`
-    * **floats** : `f16, f32`
-    * **Boolean** : `bool`
-    * **Characters** : `char`
-* Compound types
-  * Tuples
-  * Arrays
-  * Structs
-* Standard library types like `String`
-
-* Data type can be inferred at compile time with the help of assigned value
-    ```rust
-    let token_start = "100"; //Inferred type as String
-    let token_number:u32 = token_number.parse().expect("Not a number");
-
-    let next_token = token_number; //Inferred type as integer u32
-    ```
+_Note: Constant names are in uppercase in rust by convention._
 
 ---
 ## Integer literals
@@ -141,7 +144,7 @@ let three_fourth: f32 = 0.75; // we need to specify explicitely for f32
 _Default float type in rust is_: `f64`
 
 ---
-## Booleans and Characters
+## Boolean & Character Literals
 **Boolean Type: `bool`**
 * `bool` type is one byte size
 * `true` and `false` are boolean literals
@@ -161,8 +164,15 @@ let z = 'ℤ';
 ```
 
 ---
-## Compound Types
-* Tuple, Array and Struct
+## Compound & User Defined Types
+
+* Tuple : Group of related values with differet types
+
+* Array : Set of values of same type
+
+* Struct: Used to create Custom Datatype out of other scalar or struct types 
+
+* Enums: Defines possible value variants for a given result
 
 ---
 ### Tuples
@@ -241,6 +251,33 @@ let z = 'ℤ';
     ```
 
 ---
+### Enums
+Enums are used to define a possible variants/instances for a given type.
+```rust
+#[allow(dead_code)] //supress wanring since only Saturday is instatiated
+enum Day {
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+}
+
+fn main() {
+    let today = Day::Saturday;
+    let day_type = match today {
+        Day::Sunday  | Day::Saturday => "WEEK_END",
+        
+        Day::Monday | Day::Tuesday | Day::Wednesday | 
+        Day::Thursday | Day::Friday => "WEEK_DAY",
+    };
+    println!("Today is a {}", day_type);
+}
+```
+
+---
 ## Functions
 * Functions are defined in rust using keyword `fn`
 * `fn main()` is the entry point of a rust program
@@ -309,6 +346,26 @@ let z = 'ℤ';
 ---
 ### Branching with `match`
 * `match` expression is more powerful than `if` with multiple blocks
+    ```rust
+    let day = 1;
+    match day {
+        2..=6 => println!("Weekday"), //Inclusive Range match
+        1|7 => println!("WeekEnd"),   //Individual Value match
+        _ => println!("Invalid day")  //Rest of the cases
+    }
+    ```
+
+* `match` is NOT similar to `switch` in other languages
+
+* `match` block can be an expression and can be assigned
+    ```rust
+    let day_type = match day {
+        2..=6 => "Weekday",
+        1|7 => "WeekEnd",
+        _ => "Invalid day",
+    };
+    println!("Day {} is a {}", day, day_type);
+    ```
 
 ---
 ### Repetition using `loop`
@@ -403,7 +460,7 @@ let z = 'ℤ';
     
 ---
 ## Summary
-* Rust is statically typed language
+* Rust is statically typed language and variables are immutable by default
 
 * Rust has 4 scalar types: integers, floats, boolean, char
 
