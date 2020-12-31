@@ -23,37 +23,58 @@ name: agenda
 
 ---
 ## Ownership
-* Who is the owner of an allocated memory on the heap
+* Who is the owner of an allocated memory on heap in this C program?
     ```c
-    #include <stdio.h>
-    #include <stdlib.h>
-    void process_slot(int *slot)
-    {
-        printf("slot number:%d", *slot);
-        free(slot);
+    // C program with double free/use after free
+     #include <stdlib.h>
+     #include <stdio.h>
+     #include <string.h>
+    char * create_message(void) {
+        char * buffer = malloc(64);
+        strcpy(buffer, "WELCOME TO RUST");
+        return buffer;
     }
-    
-    void main()
-    {
-        int *slot = (int *)malloc(sizeof(int));
-        *slot = 7;
-        process_slot(slot);
-    
-        process_slot(slot); //use after free
+
+     void display_message(char *msg) {
+         printf("MSG:%s\n", msg);
+         free(msg); // We may not the owner of msg
+     }
+
+     void main() {
+         char * msg = create_message();
+         display_message(msg);
+         display_message(msg); //Use after free and double free
+     }
+    ```
+
+---
+## Ownership
+**_Rust ensures the ownership_**
+* Rust implementaion for the previous example; Rust throws error at compile time itlesf
+    ```rust
+    fn main() {
+        let msg = create_message(); //Ownership is now with `msg` not `buffer`
+        display_message(msg); //ownership of msg is moved into function display_message
+        display_message(msg); //Error: msg is no more a owner of the string object
+    }
+
+    fn create_message() -> String {
+        let buffer = String::from("WELCOME TO RUST");
+        buffer
+    }
+
+    fn display_message(s: String) {
+        println!("MSG: {}", s);
     }
     ```
-* memory for slot is allocated in main(); So memory shold be owned with slot pointer inside main()
-
----
-## Ownership
 * No Explicit `free` is required
---
+* Memory is freed automatically when the owner goes out of scope
 
 ---
-## Ownership
+## Ownership Rule
 **There can only be one owner at a time**
 * No explicite memory management is required;
-* No garbage collecor involved
+* No garbage collecor is involved
 * Memory is manged through system of ownership with rules checked at compile time.
   * _Each value in Rust has a variable that's called its owner_
   * _There can only be one owner at a time_
