@@ -22,7 +22,7 @@ name: agenda
 * **Memory Layout**
 
 ---
-## Ownership
+## Memory Safety in C/C++
 * Who is the owner of an allocated memory on heap in this C program?
     ```c
     // C program with double free/use after free
@@ -48,8 +48,8 @@ name: agenda
     ```
 
 ---
-## Ownership
-**_Rust ensures the ownership_**
+## Rust Ensures Ownership 
+**_Rust ensures the ownership of objects in memory_**
 * Rust implementaion for the previous example; Rust throws error at compile time itlesf
     ```rust
     fn main() {
@@ -212,7 +212,6 @@ References are used to borrow the access to the data without transfer of ownersh
 
 ---
 ## Dangling References
-
 
 ---
 ## Slice Type
