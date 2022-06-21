@@ -34,7 +34,6 @@ class: middle, center
   1. Interface
   2. Methods
   3. Pointers to methods/functions
-  4. 
 
 ---
 ## III) Errors
