@@ -1,4 +1,23 @@
-# I) Basics: 
+---
+exclude: true
+layout: default
+title: LaunchPad
+parent: The Go Workshop
+nav_order: 2
+---
+
+exclude: true
+1. TOC
+{:toc}
+
+---
+
+name: title
+class: middle, center
+# Topics
+
+---
+## I) Basics: 
   1. Packages
   2. Names : Private vs public names
   3. Types : Variables, constants
@@ -9,19 +28,24 @@
   8. pointers and structs
   9. More types: arrays, slices and make, maps
   10. for .. range
-# II) methods and interfaces (value, type)
+
+---
+## II) methods and interfaces (value, type)
   1. Interface
   2. Methods
   3. Pointers to methods/functions
   4. 
-# III) Errors
 
-# IV)concurency: 
+---
+## III) Errors
+
+---
+## IV)concurency: 
   1. goroutines, 
   2. channels
   3. select
   4. Mutex
 
-
-# V) Patterns followed
-  1. 
+---
+## V) Patterns followed
+ 
