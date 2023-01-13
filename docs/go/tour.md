@@ -20,7 +20,7 @@ class: middle, center
 ## I) Basics: 
   1. Packages
   2. Names : Private vs public names
-  3. Types : Variables, constants
+  3. Types, Variables, constants
   4. Literals: zero, false, nil
   5. Functions, and function closures
   6. Flow control (for, if, switch), defer
@@ -36,13 +36,13 @@ class: middle, center
 ## III) Errors
   1. Errors, panic, recover
 
-
----
-## IV) Generics: 
-
 ---
 ## IV) Concurency: 
   1. goroutines, 
-  2. channels
-  3. select
-  4. Mutex
+  2. channels & Buffered Channels - share/synchronize memory by communication
+  4. select - polls list of on channels
+  5. for element := range channel
+  6. sync.Mutex
+
+---
+## V) Generics: 
