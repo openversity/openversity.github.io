@@ -23,28 +23,21 @@ class: middle, center
   3. Types : Variables, constants
   4. Functions, and function closures
   5. zero, false, nil
-  6. controls (for, if, switch)
-  7. defer
-  8. pointers and structs
-  9. More types: arrays, slices and make, maps
-  10. for .. range
+  6. controls (for, if, switch), defer
+  7. pointers and structs
+  8. Data structures: arrays & slices, maps , allocation with make 
+  9. for .. range
+  10. interfaces & methods
+  11. Errors, panic, recover
+
 
 ---
-## II) methods and interfaces (value, type)
-  1. Interface
-  2. Methods
-  3. Pointers to methods/functions
-
----
-## III) Errors
-
----
-## IV)concurency: 
+## II)concurency: 
   1. goroutines, 
   2. channels
   3. select
   4. Mutex
 
 ---
-## V) Patterns followed
+## III) Patterns followed
  
