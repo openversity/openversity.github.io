@@ -9,3 +9,4 @@ permalink: /
 # Welcome to Openveristy 
 ## The learning Hub
 * [Rust Workshop](/docs/rust)
+* [Go Workshop](/docs/go)
