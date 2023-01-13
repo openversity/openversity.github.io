@@ -21,23 +21,28 @@ class: middle, center
   1. Packages
   2. Names : Private vs public names
   3. Types : Variables, constants
-  4. Functions, and function closures
-  5. zero, false, nil
-  6. controls (for, if, switch), defer
-  7. pointers and structs
-  8. Data structures: arrays & slices, maps , allocation with make 
-  9. for .. range
-  10. interfaces & methods
-  11. Errors, panic, recover
+  4. Literals: zero, false, nil
+  5. Functions, and function closures
+  6. Flow control (for, if, switch), defer
+  8. pointers and structs
+  9. Data structures: arrays & slices, maps , allocation with make 
+  10. for .. range
+
+---
+## II) Interfaces
+  1. interfaces & methods
+
+---
+## III) Errors
+  1. Errors, panic, recover
 
 
 ---
-## II)concurency: 
+## IV) Generics: 
+
+---
+## IV) Concurency: 
   1. goroutines, 
   2. channels
   3. select
   4. Mutex
-
----
-## III) Patterns followed
- 
