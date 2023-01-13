@@ -1,7 +1,7 @@
 ---
 exclude: true
 layout: default
-title: LaunchPad
+title: Quick Tour
 parent: The Go Workshop
 nav_order: 1
 ---
