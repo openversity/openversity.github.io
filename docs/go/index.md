@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The Rust Workshop
+title: The Go Workshop
 nav_order: 2
 has_children: true
 ---
