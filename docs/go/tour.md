@@ -21,7 +21,7 @@ class: middle, center
   1. Packages
   2. Names : Private vs public names
   3. Types, Variables, constants
-  4. Literals: zero, false, nil
+  4. Literals: zero, false, nil, ""
   5. Functions, and function closures
   6. Flow control (for, if, switch), defer
   8. pointers and structs
